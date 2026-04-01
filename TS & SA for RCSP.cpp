@@ -103,7 +103,7 @@ void computeLST(int* lst) {
     for (i = 0; i < n; i++) lst[i] = lft[i] - d[i];
 }
 
-/* GENERATE INITIAL SOLUTION  —  smart LST-priority topological sort
+/* GENERATE INITIAL SOLUTION  â€”  smart LST-priority topological sort
    Uses Kahn's algorithm: at each step, among all activities whose
    predecessors are already placed, pick the one with the smallest
    LST (most time-critical first).  */
@@ -130,7 +130,7 @@ void generateInitialSolution(int* seq) {
     }
 }
 
-/*GENERATE RANDOM SOLUTION  —  random topological sort (Kahn's)
+/*GENERATE RANDOM SOLUTION  â€”  random topological sort (Kahn's)
    Used for SA restarts when temperature hits the floor. */
 
 void generateRandomSolution(int* seq) {
@@ -213,11 +213,11 @@ int SGS(int* seq) {
 
 /* PRECEDENCE-FEASIBILITY CHECK FOR A SWAP
    Swapping positions pi < pj in seq is feasible iff:
-     • seq[pi] is not a predecessor of seq[pj]  (direct or indirect)
-     • For every position k strictly between pi and pj:
-         – seq[pi] is not a predecessor of seq[k]
+     â€¢ seq[pi] is not a predecessor of seq[pj]  (direct or indirect)
+     â€¢ For every position k strictly between pi and pj:
+         â€“ seq[pi] is not a predecessor of seq[k]
            (moving seq[pi] to position pj would put it AFTER seq[k])
-         – seq[k]  is not a predecessor of seq[pj]
+         â€“ seq[k]  is not a predecessor of seq[pj]
            (moving seq[pj] to position pi would put it BEFORE seq[k])
  */
 
@@ -342,7 +342,7 @@ void TS(double time_limit) {
    ? Representation : activity list (same as TS)
    ? Move selection: single random precedence-feasible swap per step
    ? Acceptance : accept if delta <= 0 (improvement or neutral);if delta > 0, accept with probability exp(-delta / T)
-   ? Cooling : geometric  T ? T × 0.8  every n iterations
+   ? Cooling : geometric  T ? T Ã— 0.8  every n iterations
    ? Initial temp: T? = 15
    ? Restart : when T < 0.001, reset T = 15 and generate
        a new random topological sort (diversification restart)
